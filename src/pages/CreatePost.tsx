@@ -180,6 +180,9 @@ export default function CreatePost() {
 
   const publishDisabled = !content || !selectedChannel || !isTelegramConfigured || generating;
 
+  console.log('👁️ Rendering CreatePost component...');
+  console.log('📊 State:', { content: content.length, imageUrl: !!imageUrl, category });
+
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       {toast && (
@@ -203,37 +206,32 @@ export default function CreatePost() {
         </div>
 
         {/* Preview всегда виден вверху страницы */}
-        {(() => {
-          console.log('👁️ Rendering Preview...');
-          return (
-            <div className="mb-6 bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl shadow-lg border-2 border-blue-200 p-6">
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                  👁️ Предварительный просмотр
-                </h2>
-                <span className="px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full">
-                  {category === 'auto' ? '🤖 Auto' : category === 'sales' ? '💰 Sales' : category === 'trust' ? '🤝 Trust' : category === 'local' ? '📍 Local' : '💬 Interactive'}
-                </span>
+        <div className="mb-6 bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl shadow-lg border-2 border-blue-200 p-6">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+              👁️ Предварительный просмотр
+            </h2>
+            <span className="px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full">
+              {category === 'auto' ? '🤖 Auto' : category === 'sales' ? '💰 Sales' : category === 'trust' ? '🤝 Trust' : category === 'local' ? '📍 Local' : '💬 Interactive'}
+            </span>
+          </div>
+          <div className="bg-white rounded-lg p-4 shadow-inner">
+            {imageUrl && (
+              <img src={imageUrl} alt="Preview" className="w-full rounded-lg mb-4 shadow-md" />
+            )}
+            {content ? (
+              <div className="prose prose-sm max-w-none">
+                <p className="text-sm text-gray-800 whitespace-pre-wrap leading-relaxed">{content}</p>
               </div>
-              <div className="bg-white rounded-lg p-4 shadow-inner">
-                {imageUrl && (
-                  <img src={imageUrl} alt="Preview" className="w-full rounded-lg mb-4 shadow-md" />
-                )}
-                {content ? (
-                  <div className="prose prose-sm max-w-none">
-                    <p className="text-sm text-gray-800 whitespace-pre-wrap leading-relaxed">{content}</p>
-                  </div>
-                ) : (
-                  <div className="text-center py-8">
-                    <div className="text-4xl mb-2">📝</div>
-                    <p className="text-sm text-gray-500 font-medium">Введите текст или сгенерируйте пост</p>
-                    <p className="text-xs text-gray-400 mt-1">Предварительный просмотр появится здесь</p>
-                  </div>
-                )}
+            ) : (
+              <div className="text-center py-8">
+                <div className="text-4xl mb-2">📝</div>
+                <p className="text-sm text-gray-500 font-medium">Введите текст или сгенерируйте пост</p>
+                <p className="text-xs text-gray-400 mt-1">Предварительный просмотр появится здесь</p>
               </div>
-            </div>
-          );
-        })()}
+            )}
+          </div>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="space-y-6">
