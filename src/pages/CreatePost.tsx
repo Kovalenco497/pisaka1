@@ -19,7 +19,6 @@ export default function CreatePost() {
   const [generating, setGenerating] = useState(false);
   const [generatingText, setGeneratingText] = useState(false);
   const [generatingImage, setGeneratingImage] = useState(false);
-  const [showPreview, setShowPreview] = useState(true);
   const [publishError, setPublishError] = useState('');
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' | 'info' } | null>(null);
   
@@ -199,6 +198,34 @@ export default function CreatePost() {
           <p className="text-gray-600 mt-1">Генерация и публикация контента</p>
         </div>
 
+        {/* Preview всегда виден вверху страницы */}
+        <div className="mb-6 bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl shadow-lg border-2 border-blue-200 p-6">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+              👁️ Предварительный просмотр
+            </h2>
+            <span className="px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full">
+              {category === 'auto' ? '🤖 Auto' : category === 'sales' ? '💰 Sales' : category === 'trust' ? '🤝 Trust' : category === 'local' ? '📍 Local' : '💬 Interactive'}
+            </span>
+          </div>
+          <div className="bg-white rounded-lg p-4 shadow-inner">
+            {imageUrl && (
+              <img src={imageUrl} alt="Preview" className="w-full rounded-lg mb-4 shadow-md" />
+            )}
+            {content ? (
+              <div className="prose prose-sm max-w-none">
+                <p className="text-sm text-gray-800 whitespace-pre-wrap leading-relaxed">{content}</p>
+              </div>
+            ) : (
+              <div className="text-center py-8">
+                <div className="text-4xl mb-2">📝</div>
+                <p className="text-sm text-gray-500 font-medium">Введите текст или сгенерируйте пост</p>
+                <p className="text-xs text-gray-400 mt-1">Предварительный просмотр появится здесь</p>
+              </div>
+            )}
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="space-y-6">
             <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
@@ -297,44 +324,6 @@ export default function CreatePost() {
           </div>
 
           <div className="space-y-6">
-            {/* Кнопка переключения Preview */}
-            <button
-              onClick={() => setShowPreview(!showPreview)}
-              className="w-full px-4 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg hover:from-blue-600 hover:to-purple-600 font-medium flex items-center justify-center gap-2"
-            >
-              👁️ {showPreview ? 'Скрыть' : 'Показать'} предварительный просмотр
-            </button>
-
-            {/* Preview - показывается когда showPreview = true */}
-            {showPreview && (
-              <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl shadow-lg border-2 border-blue-200 p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                    👁️ Предварительный просмотр
-                  </h2>
-                  <span className="px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full">
-                    {category === 'auto' ? '🤖 Auto' : category === 'sales' ? '💰 Sales' : category === 'trust' ? '🤝 Trust' : category === 'local' ? '📍 Local' : '💬 Interactive'}
-                  </span>
-                </div>
-                <div className="bg-white rounded-lg p-4 shadow-inner">
-                  {imageUrl && (
-                    <img src={imageUrl} alt="Preview" className="w-full rounded-lg mb-4 shadow-md" />
-                  )}
-                  {content ? (
-                    <div className="prose prose-sm max-w-none">
-                      <p className="text-sm text-gray-800 whitespace-pre-wrap leading-relaxed">{content}</p>
-                    </div>
-                  ) : (
-                    <div className="text-center py-8">
-                      <div className="text-4xl mb-2">📝</div>
-                      <p className="text-sm text-gray-500 font-medium">Введите текст или сгенерируйте пост</p>
-                      <p className="text-xs text-gray-400 mt-1">Предварительный просмотр появится здесь</p>
-                    </div>
-                  )}
-                </div>
-              </div>
-            )}
-
             <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
               <h2 className="text-lg font-semibold text-gray-900 mb-4">Действия</h2>
               <div className="space-y-3">
