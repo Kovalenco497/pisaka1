@@ -296,23 +296,31 @@ export default function CreatePost() {
             )}
           </div>
 
-          <div className="space-y-6">
-            {/* Preview всегда виден */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+          <div className="space-y-6 lg:sticky lg:top-6">
+            {/* Preview всегда виден и sticky на десктопе */}
+            <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl shadow-lg border-2 border-blue-200 p-6">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-lg font-semibold text-gray-900">Preview</h2>
-                <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">
-                  {category === 'auto' ? 'Auto' : category}
+                <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+                  👁️ Предварительный просмотр
+                </h2>
+                <span className="px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full">
+                  {category === 'auto' ? '🤖 Auto' : category === 'sales' ? '💰 Sales' : category === 'trust' ? '🤝 Trust' : category === 'local' ? '📍 Local' : '💬 Interactive'}
                 </span>
               </div>
-              <div className="bg-gray-50 rounded-lg p-4">
+              <div className="bg-white rounded-lg p-4 shadow-inner">
                 {imageUrl && (
-                  <img src={imageUrl} alt="Preview" className="w-full rounded-lg mb-4" />
+                  <img src={imageUrl} alt="Preview" className="w-full rounded-lg mb-4 shadow-md" />
                 )}
                 {content ? (
-                  <p className="text-sm text-gray-800 whitespace-pre-wrap">{content}</p>
+                  <div className="prose prose-sm max-w-none">
+                    <p className="text-sm text-gray-800 whitespace-pre-wrap leading-relaxed">{content}</p>
+                  </div>
                 ) : (
-                  <p className="text-sm text-gray-400 italic">Введите текст или сгенерируйте пост для предпросмотра...</p>
+                  <div className="text-center py-8">
+                    <div className="text-4xl mb-2">📝</div>
+                    <p className="text-sm text-gray-500 font-medium">Введите текст или сгенерируйте пост</p>
+                    <p className="text-xs text-gray-400 mt-1">Предварительный просмотр появится здесь</p>
+                  </div>
                 )}
               </div>
             </div>
