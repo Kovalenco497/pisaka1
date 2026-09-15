@@ -297,7 +297,7 @@ export default function CreatePost() {
           </div>
 
           <div className="space-y-6">
-            {showPreview && content && (
+            {showPreview && (
               <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-lg font-semibold text-gray-900">Preview</h2>
@@ -309,7 +309,11 @@ export default function CreatePost() {
                   {imageUrl && (
                     <img src={imageUrl} alt="Preview" className="w-full rounded-lg mb-4" />
                   )}
-                  <p className="text-sm text-gray-800 whitespace-pre-wrap">{content}</p>
+                  {content ? (
+                    <p className="text-sm text-gray-800 whitespace-pre-wrap">{content}</p>
+                  ) : (
+                    <p className="text-sm text-gray-400 italic">Введите текст или сгенерируйте пост для предпросмотра...</p>
+                  )}
                 </div>
               </div>
             )}
@@ -326,8 +330,7 @@ export default function CreatePost() {
                 </button>
                 <button
                   onClick={() => setShowPreview(!showPreview)}
-                  disabled={!content}
-                  className="w-full px-4 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 disabled:opacity-50 font-medium"
+                  className="w-full px-4 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 font-medium"
                 >
                   👁️ {showPreview ? 'Скрыть' : 'Показать'} Preview
                 </button>
