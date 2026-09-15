@@ -297,26 +297,25 @@ export default function CreatePost() {
           </div>
 
           <div className="space-y-6">
-            {showPreview && (
-              <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-lg font-semibold text-gray-900">Preview</h2>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">
-                    {category === 'auto' ? 'Auto' : category}
-                  </span>
-                </div>
-                <div className="bg-gray-50 rounded-lg p-4">
-                  {imageUrl && (
-                    <img src={imageUrl} alt="Preview" className="w-full rounded-lg mb-4" />
-                  )}
-                  {content ? (
-                    <p className="text-sm text-gray-800 whitespace-pre-wrap">{content}</p>
-                  ) : (
-                    <p className="text-sm text-gray-400 italic">Введите текст или сгенерируйте пост для предпросмотра...</p>
-                  )}
-                </div>
+            {/* Preview всегда виден */}
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-lg font-semibold text-gray-900">Preview</h2>
+                <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">
+                  {category === 'auto' ? 'Auto' : category}
+                </span>
               </div>
-            )}
+              <div className="bg-gray-50 rounded-lg p-4">
+                {imageUrl && (
+                  <img src={imageUrl} alt="Preview" className="w-full rounded-lg mb-4" />
+                )}
+                {content ? (
+                  <p className="text-sm text-gray-800 whitespace-pre-wrap">{content}</p>
+                ) : (
+                  <p className="text-sm text-gray-400 italic">Введите текст или сгенерируйте пост для предпросмотра...</p>
+                )}
+              </div>
+            </div>
 
             <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
               <h2 className="text-lg font-semibold text-gray-900 mb-4">Действия</h2>
@@ -327,12 +326,6 @@ export default function CreatePost() {
                   className="w-full px-4 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 disabled:opacity-50 font-medium"
                 >
                   💾 Сохранить черновик
-                </button>
-                <button
-                  onClick={() => setShowPreview(!showPreview)}
-                  className="w-full px-4 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 font-medium"
-                >
-                  👁️ {showPreview ? 'Скрыть' : 'Показать'} Preview
                 </button>
                 <button
                   onClick={handlePublish}
