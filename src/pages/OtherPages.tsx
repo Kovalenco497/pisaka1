@@ -13,19 +13,19 @@ export function Dashboard() {
 
   return (
     <div className="max-w-7xl mx-auto p-6">
-      <h1 className="text-3xl font-bold text-gray-900 mb-6">Дашборд</h1>
+      <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Дашборд</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-          <p className="text-sm text-gray-500 mb-1">Каналы</p>
-          <p className="text-3xl font-bold text-gray-900">{channels.length}</p>
+        <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Каналы</p>
+          <p className="text-3xl font-bold text-gray-900 dark:text-white">{channels.length}</p>
         </div>
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-          <p className="text-sm text-gray-500 mb-1">Посты</p>
-          <p className="text-3xl font-bold text-gray-900">{posts.length}</p>
+        <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Посты</p>
+          <p className="text-3xl font-bold text-gray-900 dark:text-white">{posts.length}</p>
         </div>
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-          <p className="text-sm text-gray-500 mb-1">Источники</p>
-          <p className="text-3xl font-bold text-gray-900">{sources.length}</p>
+        <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Источники</p>
+          <p className="text-3xl font-bold text-gray-900 dark:text-white">{sources.length}</p>
         </div>
       </div>
     </div>
@@ -39,21 +39,21 @@ export function ApiSettingsPage() {
 
   return (
     <div className="max-w-7xl mx-auto p-6">
-      <h1 className="text-3xl font-bold text-gray-900 mb-6">API и интеграции</h1>
+      <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">API и интеграции</h1>
       <div className="space-y-6">
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">AI Провайдеры</h2>
+        <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+          <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">AI Провайдеры</h2>
           {providers.length === 0 ? (
-            <p className="text-gray-500">Нет настроенных AI провайдеров</p>
+            <p className="text-gray-500 dark:text-gray-400">Нет настроенных AI провайдеров</p>
           ) : (
             <div className="space-y-2">
               {providers.map(p => (
-                <div key={p.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                <div key={p.id} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
                   <div>
-                    <p className="font-medium">{p.name}</p>
-                    <p className="text-sm text-gray-500">{p.type} - {p.model}</p>
+                    <p className="font-medium text-gray-900 dark:text-white">{p.name}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">{p.type} - {p.model}</p>
                   </div>
-                  <span className={`px-2 py-1 text-xs rounded-full ${p.active ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600'}`}>
+                  <span className={`px-2 py-1 text-xs rounded-full ${p.active ? 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300' : 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300'}`}>
                     {p.active ? 'Активен' : 'Выключен'}
                   </span>
                 </div>
@@ -61,19 +61,19 @@ export function ApiSettingsPage() {
             </div>
           )}
         </div>
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Image Провайдеры</h2>
+        <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+          <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Image Провайдеры</h2>
           {imageProviders.length === 0 ? (
-            <p className="text-gray-500">Нет настроенных Image провайдеров</p>
+            <p className="text-gray-500 dark:text-gray-400">Нет настроенных Image провайдеров</p>
           ) : (
             <div className="space-y-2">
               {imageProviders.map(p => (
-                <div key={p.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                <div key={p.id} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
                   <div>
-                    <p className="font-medium">{p.name}</p>
-                    <p className="text-sm text-gray-500">{p.type} - {p.model}</p>
+                    <p className="font-medium text-gray-900 dark:text-white">{p.name}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">{p.type} - {p.model}</p>
                   </div>
-                  <span className={`px-2 py-1 text-xs rounded-full ${p.active ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600'}`}>
+                  <span className={`px-2 py-1 text-xs rounded-full ${p.active ? 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300' : 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300'}`}>
                     {p.active ? 'Активен' : 'Выключен'}
                   </span>
                 </div>
@@ -114,15 +114,15 @@ export function AutopilotPage() {
 
   return (
     <div className="max-w-7xl mx-auto p-6">
-      <h1 className="text-3xl font-bold text-gray-900 mb-6">Автопилот</h1>
+      <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Автопилот</h1>
       
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6">
+      <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-6">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-semibold text-gray-900">Канал</h2>
+          <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Канал</h2>
           <select
             value={activeChannel || ''}
             onChange={(e) => setActiveChannel(Number(e.target.value))}
-            className="px-3 py-2 border border-gray-300 rounded-lg"
+            className="px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg"
           >
             {channels.map((ch: Channel) => (
               <option key={ch.id} value={ch.id}>{ch.name}</option>
@@ -131,9 +131,9 @@ export function AutopilotPage() {
         </div>
       </div>
 
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+      <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-semibold text-gray-900">Расписание</h2>
+          <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Расписание</h2>
           <button onClick={() => setShowAddSchedule(true)} className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center gap-2">
             <Plus size={18} />
             Добавить
@@ -141,16 +141,16 @@ export function AutopilotPage() {
         </div>
 
         {schedules.filter(s => s.channelId === activeChannel).length === 0 ? (
-          <p className="text-gray-500">Нет расписания</p>
+          <p className="text-gray-500 dark:text-gray-400">Нет расписания</p>
         ) : (
           <div className="space-y-2">
             {schedules.filter(s => s.channelId === activeChannel).map(s => (
-              <div key={s.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+              <div key={s.id} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
                 <div>
-                  <p className="font-medium">{dayNames[s.dayOfWeek]} {s.time}</p>
-                  <p className="text-sm text-gray-500">{s.category}</p>
+                  <p className="font-medium text-gray-900 dark:text-white">{dayNames[s.dayOfWeek]} {s.time}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">{s.category}</p>
                 </div>
-                <button onClick={() => handleDeleteSchedule(s.id!)} className="px-3 py-2 text-xs bg-red-50 text-red-600 rounded hover:bg-red-100">
+                <button onClick={() => handleDeleteSchedule(s.id!)} className="px-3 py-2 text-xs bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded hover:bg-red-100 dark:hover:bg-red-900/30">
                   <Trash2 size={12} />
                 </button>
               </div>
@@ -175,24 +175,24 @@ function AddScheduleForm({ onClose, onAdd }: { onClose: () => void; onAdd: (day:
   const dayNames = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
 
   return (
-    <div className="bg-white rounded-xl w-full max-w-md p-6">
-      <h2 className="text-xl font-bold text-gray-900 mb-4">Добавить расписание</h2>
+    <div className="bg-white dark:bg-gray-900 rounded-xl w-full max-w-md p-6">
+      <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Добавить расписание</h2>
       <div className="space-y-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">День</label>
-          <select value={day} onChange={e => setDay(Number(e.target.value))} className="w-full px-3 py-2 border border-gray-300 rounded-lg">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">День</label>
+          <select value={day} onChange={e => setDay(Number(e.target.value))} className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg">
             {dayNames.map((name, idx) => (
               <option key={idx} value={idx}>{name}</option>
             ))}
           </select>
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">Время</label>
-          <input type="time" value={time} onChange={e => setTime(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Время</label>
+          <input type="time" value={time} onChange={e => setTime(e.target.value)} className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg" />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">Категория</label>
-          <select value={category} onChange={e => setCategory(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Категория</label>
+          <select value={category} onChange={e => setCategory(e.target.value)} className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg">
             <option value="sales">Sales</option>
             <option value="trust">Trust</option>
             <option value="local">Local</option>
@@ -201,7 +201,7 @@ function AddScheduleForm({ onClose, onAdd }: { onClose: () => void; onAdd: (day:
         </div>
       </div>
       <div className="flex gap-2 mt-6">
-        <button onClick={onClose} className="flex-1 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200">Отмена</button>
+        <button onClick={onClose} className="flex-1 px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700">Отмена</button>
         <button onClick={() => onAdd(day, time, category)} className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Добавить</button>
       </div>
     </div>
@@ -214,15 +214,15 @@ export function DraftsPage() {
 
   return (
     <div className="max-w-7xl mx-auto p-6">
-      <h1 className="text-3xl font-bold text-gray-900 mb-6">Черновики</h1>
+      <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Черновики</h1>
       {posts.length === 0 ? (
-        <p className="text-gray-500">Нет черновиков</p>
+        <p className="text-gray-500 dark:text-gray-400">Нет черновиков</p>
       ) : (
         <div className="space-y-4">
           {posts.map(post => (
-            <div key={post.id} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-              <h3 className="font-semibold text-gray-900">{post.topic}</h3>
-              <p className="text-sm text-gray-600 mt-2">{post.content.substring(0, 200)}...</p>
+            <div key={post.id} className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+              <h3 className="font-semibold text-gray-900 dark:text-white">{post.topic}</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">{post.content.substring(0, 200)}...</p>
             </div>
           ))}
         </div>
@@ -237,15 +237,15 @@ export function ModerationPage() {
 
   return (
     <div className="max-w-7xl mx-auto p-6">
-      <h1 className="text-3xl font-bold text-gray-900 mb-6">Модерация</h1>
+      <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Модерация</h1>
       {posts.length === 0 ? (
-        <p className="text-gray-500">Нет постов на модерации</p>
+        <p className="text-gray-500 dark:text-gray-400">Нет постов на модерации</p>
       ) : (
         <div className="space-y-4">
           {posts.map(post => (
-            <div key={post.id} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-              <h3 className="font-semibold text-gray-900">{post.topic}</h3>
-              <p className="text-sm text-gray-600 mt-2">{post.content.substring(0, 200)}...</p>
+            <div key={post.id} className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+              <h3 className="font-semibold text-gray-900 dark:text-white">{post.topic}</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">{post.content.substring(0, 200)}...</p>
             </div>
           ))}
         </div>
@@ -260,16 +260,16 @@ export function HistoryPage() {
 
   return (
     <div className="max-w-7xl mx-auto p-6">
-      <h1 className="text-3xl font-bold text-gray-900 mb-6">История</h1>
+      <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">История</h1>
       {posts.length === 0 ? (
-        <p className="text-gray-500">Нет опубликованных постов</p>
+        <p className="text-gray-500 dark:text-gray-400">Нет опубликованных постов</p>
       ) : (
         <div className="space-y-4">
           {posts.map(post => (
-            <div key={post.id} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-              <h3 className="font-semibold text-gray-900">{post.topic}</h3>
-              <p className="text-sm text-gray-600 mt-2">{post.content.substring(0, 200)}...</p>
-              <p className="text-xs text-gray-500 mt-2">Опубликовано: {post.publishedAt ? new Date(post.publishedAt).toLocaleString() : 'N/A'}</p>
+            <div key={post.id} className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+              <h3 className="font-semibold text-gray-900 dark:text-white">{post.topic}</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">{post.content.substring(0, 200)}...</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">Опубликовано: {post.publishedAt ? new Date(post.publishedAt).toLocaleString() : 'N/A'}</p>
             </div>
           ))}
         </div>
@@ -284,25 +284,25 @@ export function ActivityPage() {
 
   return (
     <div className="max-w-7xl mx-auto p-6">
-      <h1 className="text-3xl font-bold text-gray-900 mb-6">Активность</h1>
+      <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Активность</h1>
       {logs.length === 0 ? (
-        <p className="text-gray-500">Нет активности</p>
+        <p className="text-gray-500 dark:text-gray-400">Нет активности</p>
       ) : (
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+        <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
           <div className="space-y-2">
             {logs.map(log => (
-              <div key={log.id} className="flex items-start gap-3 p-2 border-b border-gray-100">
+              <div key={log.id} className="flex items-start gap-3 p-2 border-b border-gray-100 dark:border-gray-800">
                 <span className={`text-xs ${
-                  log.type === 'success' ? 'text-green-600' :
-                  log.type === 'error' ? 'text-red-600' :
-                  log.type === 'warning' ? 'text-yellow-600' :
-                  'text-blue-600'
+                  log.type === 'success' ? 'text-green-600 dark:text-green-400' :
+                  log.type === 'error' ? 'text-red-600 dark:text-red-400' :
+                  log.type === 'warning' ? 'text-yellow-600 dark:text-yellow-400' :
+                  'text-blue-600 dark:text-blue-400'
                 }`}>
                   {log.type === 'success' ? '✓' : log.type === 'error' ? '✗' : log.type === 'warning' ? '⚠' : 'ℹ'}
                 </span>
                 <div className="flex-1">
-                  <p className="text-sm text-gray-800">{log.message}</p>
-                  <p className="text-xs text-gray-500">{new Date(log.timestamp).toLocaleString()}</p>
+                  <p className="text-sm text-gray-800 dark:text-white">{log.message}</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">{new Date(log.timestamp).toLocaleString()}</p>
                 </div>
               </div>
             ))}
@@ -333,24 +333,24 @@ export function SettingsPage() {
 
   return (
     <div className="max-w-7xl mx-auto p-6">
-      <h1 className="text-3xl font-bold text-gray-900 mb-6">Настройки</h1>
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+      <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Настройки</h1>
+      <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Часовой пояс</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Часовой пояс</label>
             <input
               type="text"
               value={formData.timezone || ''}
               onChange={e => setFormData({ ...formData, timezone: e.target.value })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Язык</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Язык</label>
             <select
               value={formData.language || 'ru'}
               onChange={e => setFormData({ ...formData, language: e.target.value })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg"
             >
               <option value="ru">Русский</option>
               <option value="en">English</option>
@@ -372,9 +372,9 @@ export function SettingsPage() {
 export function ContentPlanPage() {
   return (
     <div className="max-w-7xl mx-auto p-6">
-      <h1 className="text-3xl font-bold text-gray-900 mb-6">Контент-план</h1>
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-        <p className="text-gray-500">Контент-план будет доступен в следующих обновлениях</p>
+      <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Контент-план</h1>
+      <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+        <p className="text-gray-500 dark:text-gray-400">Контент-план будет доступен в следующих обновлениях</p>
       </div>
     </div>
   );
